@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAFF - Segurança contra Incêndio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Configuração das Variáveis baseadas no seu CSS */
+        :root {
+            --background: #f4f4f4;
+            --foreground: #4a4a4a;
+            --primary: #0056b3;    /* Seu Azul */
+            --secondary: #28a745;  /* Seu Verde */
+            --card: #ffffff;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-serif: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--foreground);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            letter-spacing: -0.02em;
+            color: #0f172a; /* Slate 900 */
+        }
+
+        /* Cores customizadas para o Tailwind reconhecer */
+        .bg-primary { background-color: var(--primary); }
+        .text-primary { color: var(--primary); }
+        .bg-secondary { background-color: var(--secondary); }
+        .border-primary { border-color: var(--primary); }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+                </div>
+                <span class="text-2xl font-extrabold text-slate-900 tracking-tighter">KAFF</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
+                <a href="#servicos" class="hover:text-primary transition-colors">Serviços</a>
+                <a href="#sobre" class="hover:text-primary transition-colors">Sobre Nós</a>
+                <button class="bg-primary text-white px-6 py-2.5 rounded-lg shadow-lg hover:opacity-90 transition-all">
+                    Solicitar Orçamento
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-20 px-6 bg-slate-900 overflow-hidden">
+        <div class="container mx-auto relative z-10">
+            <div class="max-w-3xl">
+                <span class="inline-block bg-secondary/20 text-green-400 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-secondary/30 mb-6">
+                    Especialistas em AVCB
+                </span>
+                <h1 class="text-5xl md:text-7xl font-bold text-white leading-[1.1] mb-6">
+                    Sua segurança contra incêndio, <span class="text-blue-500">resolvida.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed">
+                    Gestão completa e descomplicada de AVCB para condomínios, residências e comércios. Sem burocracia, com total conformidade técnica.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-primary text-white text-lg font-bold h-14 px-8 rounded-xl flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform">
+                        Solicitar Orçamento
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-0 right-0 w-full h-full opacity-30 pointer-events-none">
+            <div class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full blur
