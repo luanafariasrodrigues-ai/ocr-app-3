@@ -5,46 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KAFF - Segurança contra Incêndio</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-        :root {
-            --primary: #0056b3;   /* Seu Azul */
-            --secondary: #28a745; /* Seu Verde */
-            --bg: #f4f4f4;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0056b3', /* Azul */
+                        secondary: '#28a745', /* Verde */
+                        background: '#f4f4f4',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
         }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); }
-        h1, h3 { font-family: 'Outfit', sans-serif; }
-    </style>
+    </script>
 </head>
-<body>
+<body class="bg-background text-gray-800 font-sans antialiased">
 
-    <nav class="fixed w-full bg-white shadow-sm py-4 z-50">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <span class="text-2xl font-bold text-slate-900">KAFF</span>
-            <button class="bg-[#0056b3] text-white px-6 py-2 rounded-lg font-bold">Orçamento</button>
+            <span class="text-3xl font-extrabold text-primary font-serif tracking-tight">KAFF</span>
+            <div class="hidden md:flex gap-8 items-center font-medium">
+                <a href="#servicos" class="hover:text-primary">Serviços</a>
+                <a href="#sobre" class="hover:text-primary">Sobre Nós</a>
+                <button class="bg-primary text-white px-6 py-2 rounded-lg font-bold">Solicitar Orçamento</button>
+            </div>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 bg-slate-900 text-white px-6">
-        <div class="container mx-auto">
-            <span class="text-[#28a745] font-bold text-sm uppercase">Especialistas em AVCB</span>
-            <h1 class="text-5xl font-bold mt-4 leading-tight">Sua segurança, <span class="text-blue-500">resolvida.</span></h1>
-            <p class="text-slate-300 mt-6 text-lg">Gestão completa de AVCB sem burocracia.</p>
+    <section class="relative min-h-[90vh] flex items-center pt-20 bg-slate-900 text-white">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl">
+                <span class="bg-secondary/20 text-secondary px-4 py-1.5 rounded-full text-sm font-bold uppercase border border-secondary/30">
+                    Especialistas em AVCB
+                </span>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold mt-6 leading-tight">
+                    Sua segurança contra incêndio, <span class="text-blue-400">resolvida.</span>
+                </h1>
+                <p class="text-xl text-slate-300 mt-6 mb-10">
+                    Gestão completa e descomplicada de AVCB para condomínios, residências e comércios. Sem burocracia, com total conformidade.
+                </p>
+                <div class="flex gap-4">
+                    <button class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700">Solicitar Orçamento</button>
+                    <button class="border border-white/20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10">Nossos Serviços</button>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="container mx-auto px-6 -mt-10">
-        <div class="bg-white rounded-2xl shadow-xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+    <section class="container mx-auto px-6 -mt-12 relative z-20">
+        <div class="bg-white rounded-2xl shadow-xl p-10 grid grid-cols-2 md:grid-cols-4 gap-8 border border-gray-100">
             {% for stat in stats %}
             <div class="text-center">
-                <h3 class="text-3xl font-bold text-slate-900">{{ stat.value }}</h3>
-                <p class="text-slate-500 text-sm">{{ stat.label }}</p>
+                <h3 class="text-4xl font-serif font-bold text-slate-900">{{ stat.value }}</h3>
+                <p class="text-gray-500 font-medium mt-2">{{ stat.label }}</p>
             </div>
             {% endfor %}
         </div>
     </section>
+
+    <section id="servicos" class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-secondary font-bold uppercase tracking-widest mb-2">Nossas Especialidades</h2>
+                <h3 class="text-4xl font-serif font-bold text-slate-900">Soluções completas</h3>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition">
+                    <h4 class="text-2xl font-serif font-bold text-slate-900 mb-4">Prédios & Condomínios</h4>
+                    <p class="text-gray-600 mb-6">Gestão completa de vistorias e renovações. Cuidamos de toda a documentação para o síndico.</p>
+                    <button class="text-primary font-bold w-full border border-primary py-2 rounded-lg hover:bg-primary hover:text-white transition">Saiba Mais</button>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition">
+                    <h4 class="text-2xl font-serif font-bold text-slate-900 mb-4">Comércio & Lojas</h4>
+                    <p class="text-gray-600 mb-6">Adequação rápida e técnica para garantir seu alvará de funcionamento sem atrasar seu negócio.</p>
+                    <button class="text-primary font-bold w-full border border-primary py-2 rounded-lg hover:bg-primary hover:text-white transition">Saiba Mais</button>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition">
+                    <h4 class="text-2xl font-serif font-bold text-slate-900 mb-4">Casas & Residências</h4>
+                    <p class="text-gray-600 mb-6">Laudos técnicos e consultoria especializada para garantir a segurança da sua família.</p>
+                    <button class="text-primary font-bold w-full border border-primary py-2 rounded-lg hover:bg-primary hover:text-white transition">Saiba Mais</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white py-12 border-t border-gray-200">
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div>
+                <span class="text-2xl font-serif font-bold text-slate-900">KAFF</span>
+                <p class="text-gray-500 mt-4">Sua parceira técnica de confiança para regularização e emissão de AVCB.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-slate-900 mb-4">Contato</h4>
+                <p class="text-gray-500">(11) 4000-0000</p>
+                <p class="text-gray-500">contato@kaff.com.br</p>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-12 pt-8 border-t border-gray-100 text-center text-gray-400 text-sm">
+            <p>© 2024 KAFF - Segurança contra Incêndio. CREA-SP: 123456789-0</p>
+        </div>
+    </footer>
 
 </body>
 </html>
