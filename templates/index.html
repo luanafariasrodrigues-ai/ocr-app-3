@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAFF - Segurança contra Incêndio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
+    <style>
+        :root {
+            --primary: #0056b3;   /* Seu Azul */
+            --secondary: #28a745; /* Seu Verde */
+            --bg: #f4f4f4;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); }
+        h1, h3 { font-family: 'Outfit', sans-serif; }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full bg-white shadow-sm py-4 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <span class="text-2xl font-bold text-slate-900">KAFF</span>
+            <button class="bg-[#0056b3] text-white px-6 py-2 rounded-lg font-bold">Orçamento</button>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 bg-slate-900 text-white px-6">
+        <div class="container mx-auto">
+            <span class="text-[#28a745] font-bold text-sm uppercase">Especialistas em AVCB</span>
+            <h1 class="text-5xl font-bold mt-4 leading-tight">Sua segurança, <span class="text-blue-500">resolvida.</span></h1>
+            <p class="text-slate-300 mt-6 text-lg">Gestão completa de AVCB sem burocracia.</p>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-6 -mt-10">
+        <div class="bg-white rounded-2xl shadow-xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+            {% for stat in stats %}
+            <div class="text-center">
+                <h3 class="text-3xl font-bold text-slate-900">{{ stat.value }}</h3>
+                <p class="text-slate-500 text-sm">{{ stat.label }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+</body>
+</html>
