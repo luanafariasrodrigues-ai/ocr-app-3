@@ -1,17 +1,19 @@
+import os
 from flask import Flask, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
 @app.route('/')
 def home():
-    # Aqui simulamos os dados que estavam no React
+    # Dados que aparecem nas caixinhas brancas
     stats = [
-        {"icon": "file-text", "label": "Projetos Aprovados", "value": "1.200+"},
-        {"icon": "building", "label": "Condomínios Seguros", "value": "450+"},
-        {"icon": "users", "label": "Clientes Satisfeitos", "value": "98%"},
-        {"icon": "clock", "label": "Anos de Experiência", "value": "15+"}
+        {"value": "1.200+", "label": "Projetos"},
+        {"value": "450+", "label": "Condomínios"},
+        {"value": "98%", "label": "Satisfação"},
+        {"value": "15+", "label": "Anos Exp."}
     ]
     return render_template('index.html', stats=stats)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
