@@ -5,7 +5,7 @@ app = Flask(__name__, template_folder='templates')
 
 @app.route('/')
 def home():
-    # Dados que aparecem nas caixinhas brancas
+    # Dados que o JavaScript e o HTML vão usar
     stats = [
         {"value": "1.200+", "label": "Projetos"},
         {"value": "450+", "label": "Condomínios"},
